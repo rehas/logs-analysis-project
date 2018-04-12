@@ -1,0 +1,20 @@
+Steps to complete project
+
+1-Load files and populate DB 
+2-Connect to db from CL, check tables, try queries
+3-Create py file, try connecting and querying from py file
+4-Tables overview
+    -# of rows
+    -types and values of data
+5-Questions:
+    1-What are the most popular three articles of all time?
+        -Get popularity
+            -from logs, aggregate hit count 
+            -there are paths that are very little different
+            -aggregate the hits on those paths
+                -ignore hits with error (or not ok)
+        -Get results
+            -select top three hitted articles
+
+    2-Who are the most popular article authors of all time?
+    3-On which days did more than 1% of requests lead to errors? 
