@@ -1,18 +1,26 @@
 Steps to complete project
 
-1-Load files and populate DB 
-2-Connect to db from CL, check tables, try queries
-3-Create py file, try connecting and querying from py file
+1-Load files and populate DB +
+2-Connect to db from CL, check tables, try queries +
+3-Create py file, try connecting and querying from py file+
 4-Tables overview
-    -# of rows
-    -types and values of data
+    -# of rows +
+    -types and values of data +
 5-Questions:
     1-What are the most popular three articles of all time?
         -Get popularity
             -from logs, aggregate hit count 
             -there are paths that are very little different
+            -there are paths with root, --homepage probably
+                -create a view for just showing articles+
             -aggregate the hits on those paths
                 -ignore hits with error (or not ok)
+        create a view for this
+            -Aggrregate similar paths related to slug
+                * how to group by similarity
+                # No need for this, mispelled paths return not found #
+            -where http response not reject+
+            -select titles+
         -Get results
             -select top three hitted articles
 
