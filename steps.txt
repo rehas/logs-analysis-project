@@ -7,7 +7,7 @@ Steps to complete project
     -# of rows +
     -types and values of data +
 5-Questions:
-    1-What are the most popular three articles of all time?
+    1-What are the most popular three articles of all time?+
         -Get popularity
             -from logs, aggregate hit count 
             -there are paths that are very little different
@@ -25,4 +25,6 @@ Steps to complete project
             -select top three hitted articles
 
     2-Who are the most popular article authors of all time?
-    3-On which days did more than 1% of requests lead to errors? 
+        -From the joined table group by author ID, join that to authors table
+    3-On which days did more than 1% of requests lead to errors?
+        -Use log table, groupby response and date.day 
