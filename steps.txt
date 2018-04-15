@@ -31,6 +31,6 @@ Steps to complete project
         -Use log table, groupby response and date.day +
 
 6-Refactoring and ouput formatting
-    -Check python code in py checker
-    -Review created views to see if there's columns unnecessary
-    -Check output window if readability of results can be improved
+    -Check python code in py checker +
+    -Review created views to see if there's columns unnecessary +
+    -Check output window if readability of results can be improved+
