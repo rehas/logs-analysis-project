@@ -36,6 +36,9 @@ def get_most_popular_articles():
     c.execute(qry_get_most_popular_articles)
     res = c.fetchall()
 
+    print("\n PRINTING MOST POPULAR ARTICLES \n")
+    
+
 # Iterator is used to print only the first three most popular articles
 # This functionality can be embedded into the psql query but I thought
 # maybe in the future this function might be based on parameters. 
@@ -49,3 +52,36 @@ def get_most_popular_articles():
     return res
 
 get_most_popular_articles()
+
+def get_most_popular_authors():
+    db = psycopg2.connect(DBPATH)
+    c = db.cursor()
+
+    # Adding author id and author name column to the previous most popular articles query
+    
+    #select author, name, sum(cnt) from articles, authors, article_popularity 
+    # where articles.slug = replace(path, '/article/', '') 
+    # and authors.id = articles.author group by author, name 
+    # order by sum desc;
+
+    qry_get_most_popular_authors = \
+     "select author, name, sum(cnt) from \
+     articles, authors, article_popularity \
+     where articles.slug = replace(path, '/article/', '') \
+     and authors.id = articles.author \
+     group by author, name order by sum desc"
+    c.execute(qry_get_most_popular_authors)
+    res = c.fetchall()
+
+
+    print("\n PRINTING MOST POPULAR AUTHORS \n")
+
+    iterator = 0
+    for i in res:
+        if iterator < 3:
+            print("Author Name: %s Total Succesful Views: %s" %( i[1],  i[2]))
+        iterator +=1
+    db.close()
+    return res
+
+get_most_popular_authors()
