@@ -28,6 +28,9 @@ Steps to complete project
         -From the joined table group by author ID, 
             join that to authors table +
     3-On which days did more than 1% of requests lead to errors?
-        -Use log table, groupby response and date.day 
+        -Use log table, groupby response and date.day +
 
 6-Refactoring and ouput formatting
+    -Check python code in py checker
+    -Review created views to see if there's columns unnecessary
+    -Check output window if readability of results can be improved
