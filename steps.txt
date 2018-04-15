@@ -3,7 +3,7 @@ Steps to complete project
 1-Load files and populate DB +
 2-Connect to db from CL, check tables, try queries +
 3-Create py file, try connecting and querying from py file+
-4-Tables overview
+4-Tables overview+
     -# of rows +
     -types and values of data +
 5-Questions:
@@ -24,7 +24,10 @@ Steps to complete project
         -Get results
             -select top three hitted articles
 
-    2-Who are the most popular article authors of all time?
-        -From the joined table group by author ID, join that to authors table
+    2-Who are the most popular article authors of all time? +
+        -From the joined table group by author ID, 
+            join that to authors table +
     3-On which days did more than 1% of requests lead to errors?
         -Use log table, groupby response and date.day 
+
+6-Refactoring and ouput formatting
