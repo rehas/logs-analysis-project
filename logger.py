@@ -82,9 +82,9 @@ def get_error_days():
     c = db.cursor()
     qry_get_error_days = \
         "select time, lag + cnt as total, cnt as errors, \
-        to_char(cnt::float / (cnt + lag), '9.99') as P \
+        to_char(cnt::float * 100.00 / (cnt + lag), '9.99') as P \
         from log_types_count \
-        where (cnt::float / (cnt + lag) > 0.01::float) \
+        where (cnt::float *100.00 / (cnt + lag) > 1.00::float) \
         "
     c.execute(qry_get_error_days)
     res = c.fetchall()
