@@ -55,7 +55,7 @@ I've created some extra views within this database:
     log."time"::timestamp without time zone::date AS "time",
     lag(count(*)) OVER (PARTITION BY (log."time"::timestamp without time zone::date)) AS lag,
     count(*) AS cnt,
-    to_char(count(*)::numeric * 1.00 / lag(count(*)) OVER (PARTITION BY (log."time"::timestamp without time zone::date))::numeric, '9.999'::text) AS pct
+    to_char(count(*)::numeric * 100.00 / lag(count(*)) OVER (PARTITION BY (log."time"::timestamp without time zone::date))::numeric, '9.999'::text) AS pct
    FROM log
   GROUP BY log.status, (log."time"::timestamp without time zone::date)
   ORDER BY (log."time"::timestamp without time zone::date);
