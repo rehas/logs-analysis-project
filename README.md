@@ -26,6 +26,8 @@ I've created some extra views within this database:
 
  article_hits_view:
 
+
+ CREATE VIEW article_hits_view AS
  SELECT log.path,
     log.ip,
     log.method,
@@ -37,15 +39,19 @@ I've created some extra views within this database:
 
  article_popularity:
 
+
+ CREATE VIEW article_popularity AS
  SELECT article_hits_view.path,
     count(*) AS cnt
    FROM article_hits_view
   GROUP BY article_hits_view.path
   ORDER BY (count(*)) DESC;
 
-  log_types_count -- Shows daily grouped log types with counts and ratio of 404 responses to 200 responses. --
+  log_types_count: -- Shows daily grouped log types with counts and ratio of 404 responses to 200 responses. --
 
-  SELECT log.status,
+
+ CREATE VIEW log_types_count AS 
+ SELECT log.status,
     log."time"::timestamp without time zone::date AS "time",
     lag(count(*)) OVER (PARTITION BY (log."time"::timestamp without time zone::date)) AS lag,
     count(*) AS cnt,
