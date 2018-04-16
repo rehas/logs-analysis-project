@@ -29,10 +29,11 @@ def get_most_popular_articles():
     ----------------------------------
 
     """
-    qry_get_most_popular_articles = \
-        "select title, cnt \
-        from articles join article_popularity \
-        on articles.slug = replace(path, '/article/', '');"
+    qry_get_most_popular_articles = """
+        SELECT title, cnt
+        FROM articles join article_popularity
+        ON articles.slug = replace(path, '/article/', '');
+        """
     c.execute(qry_get_most_popular_articles)
     res = c.fetchall()
     print("\n PRINTING MOST POPULAR ARTICLES \n")
@@ -59,12 +60,14 @@ def get_most_popular_authors():
     # Adding author id and author name column to the
     # # previous most popular articles query article_popularity view
     # ----------------------------------
-    qry_get_most_popular_authors = \
-        "select author, name, sum(cnt) \
-         from articles, authors, article_popularity \
-         where articles.slug = replace(path, '/article/', '') \
-         and authors.id = articles.author \
-         group by author, name order by sum desc"
+    qry_get_most_popular_authors = """
+         SELECT author, name, sum(cnt)
+         FROM articles, authors, article_popularity
+         WHERE articles.slug = replace(path, '/article/', '')
+         AND authors.id = articles.author
+         GROUP BY author, name
+         ORDER BY sum DESC
+         """
     c.execute(qry_get_most_popular_authors)
     res = c.fetchall()
     print("\n PRINTING MOST POPULAR AUTHORS \n")
@@ -91,12 +94,12 @@ def get_error_days():
 
     """
     db, c = db_connect(DBPATH)
-    qry_get_error_days = \
-        "select time, lag + cnt as total, cnt as errors, \
-        to_char(cnt::float * 100.00 / (cnt + lag), '9.99') as P \
-        from log_types_count \
-        where (cnt::float *100.00 / (cnt + lag) > 1.00::float) \
-        "
+    qry_get_error_days = """
+        SELECT time, lag + cnt AS total, cnt AS errors,
+        to_char(cnt::float * 100.00 / (cnt + lag), '9.99') AS P
+        FROM log_types_count
+        WHERE (cnt::float *100.00 / (cnt + lag) > 1.00::float)
+        """
     c.execute(qry_get_error_days)
     res = c.fetchall()
     print("\n PRINTING MOST ERROR DAYS \n")
