@@ -12,25 +12,7 @@ Author Name: Anonymous Contributor Total Succesful Views: 170098
 
  PRINTING MOST ERROR DAYS
 
-Date: 2016-07-17 -- Total Hits: 55907 -- Errors: 1265 -- Percentage:   .02
-vagrant@vagrant:/vagrant/logs-analysis-project$ python logger.py
-/usr/local/lib/python2.7/dist-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
-  """)
-
- PRINTING MOST POPULAR ARTICLES
-
-Article Name: Candidate is jerk, alleges rival Total Succesful Views: 338647
-Article Name: Bears love berries, alleges bear Total Succesful Views: 253801
-Article Name: Bad things gone, say good people Total Succesful Views: 170098
-
- PRINTING MOST POPULAR AUTHORS
-
-Author Name: Ursula La Multa Total Succesful Views: 507594
-Author Name: Rudolf von Treppenwitz Total Succesful Views: 423457
-Author Name: Anonymous Contributor Total Succesful Views: 170098
-
- PRINTING MOST ERROR DAYS
-
-Date: 2016-07-17 -- Total Hits: 55907 -- Errors: 1265 -- Percentage:   .02
+Date: 2016-07-17 -- Total Hits: 55907 -- Errors: 1265 -- Percentage:  2.26
 
  END OF ANALYSIS
+
